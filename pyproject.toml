@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "rest"
+version = "0.1.0"
+description = ""
+authors = ["mateo liberatore <liberatoremate98@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+sqlalchemy = "^2.0.36"
+flask-wtf = "^1.2.2"
+wtforms = "^3.2.1"
+datetime = "^5.5"
+postgres = "^4.0"
+psycopg2 = "^2.9.10"
+flask-sqlalchemy = "^3.1.1"
+docker = "^7.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
