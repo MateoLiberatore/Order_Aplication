@@ -16,6 +16,8 @@ class Client(db.Model):
 
     #relacion
     orders = db.relationship('Order', back_populates ='client')    #order asociada a un cliente
+
+   
     
 class Product(db.Model):
     __tablename__ = 'products'
