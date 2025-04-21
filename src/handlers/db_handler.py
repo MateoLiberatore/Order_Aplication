@@ -73,15 +73,13 @@ def add(cls, dict_params):
                 try:
                     python_type = column.property.columns[0].type.python_type
                     
-                    # Verificar si el valor es 'None' y si el campo es obligatorio
+               
                     if value is None and column.nullable is False:
                         return {"error": f"El campo '{key}' no puede ser nulo."}, 400
-
-                    # Verificar si el valor es una cadena vacía para los campos que no lo permiten
+                        
                     if isinstance(value, str) and value.strip() == "" and column.nullable is False:
                         return {"error": f"El campo '{key}' no puede estar vacío."}, 400
 
-                    # Intentar convertir el valor al tipo adecuado
                     converted_value = python_type(value) if value is not None else None
                     
                     setattr(record, key, converted_value)
