@@ -131,7 +131,6 @@ def modify(cls,id,update_dic):  #check
             return {"error": f"El campo '{key}' no existe en el modelo '{cls.__name__}'"}, 400
 
     try:
-        #logging de el commit
         db.session.commit()
         return {"success": f"{cls.__tablename__} con ID {id} modificado correctamente."}, 200
     except Exception as e:
