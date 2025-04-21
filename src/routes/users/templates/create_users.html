@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+
+    <h1>Create a New user</h1>
+    
+    <div class="form" >
+        
+        <form id="user_form"  action="{{url_for('users.create_users')}}" method = "POST">
+
+            <h2 class="title">User Form</h2>
+
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" >
+
+            <label for="surname">Surname: </label>
+            <input type="text" id="surname" name="surname" >
+
+            <label for="phone">Phone: </label>
+            <input type="number" id="phone" name="phone" >
+
+            <label for="direction">Direction: </label>
+            <input type="text" id="direction" name="direction" >
+
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email" >
+
+            <label for="dni">Dni: </label>
+            <input type="number" id="dni" name="dni" >
+
+            <label for="password">Password: </label>
+            <input type="text" id="password" name="password" >
+
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" >
+
+            <label for="category">Category: </label>
+            <input type="text" id="category" name="category" >
+            
+            <button type="submit" id="submit">Submit</button>
+        </form>
+   
+    {% if error is defined and error %}
+    <div class="error-container">
+      {% if error.error %}
+        <p style="color: red;">{{ error.error }}</p>
+      {% elif error.errors %}
+        <ul style="color: red;">
+          {% for field, msg in error.errors.items() %}
+            <li><strong>{{ field }}:</strong> {{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+  
+    {% if success is defined and success %}
+        <div class="success-container">
+        <p style="color: green;">{{ success.message }}</p>
+        </div>
+    {% endif %} 
+
+</div>     

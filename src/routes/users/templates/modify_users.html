@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Clients</title>
+</head>
+<body>
+
+    
+<div class="">
+    <h1>Update Client Data</h1>
+    
+        <form id="user_form" action="{{ url_for('users.modify_users', id=data.id) }}" method="POST">
+
+            <h2 class="title">Update Form</h2>
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ data.name }}">
+
+            <label for="surname">surname:</label>
+            <input type="text" id="surname" name="surname" value="{{ data.surname }}">
+
+            <label for="phone">phone:</label>
+            <input type="text" id="phone" name="phone" value="{{ data.phone }}">
+            
+            <label for="direction">direction:</label>
+            <input type="text" id="direction" name="direction" value="{{ data.direction }}">
+            
+            <button type="submit" id="submit">Submit</button>
+        </form>
+
+        {% if error %}
+        <div style="
+          background-color: #f8d7da;
+          color: #721c24;
+          padding: 12px;
+          border: 1px solid #f5c6cb;
+          border-radius: 4px;
+          margin-bottom: 15px;">
+          ⚠️ {{ error.error }}
+        </div>
+      {% endif %}
+      
+      {% if exception %}
+        <div style="
+          background-color: #f8d7da;
+          color: #721c24;
+          padding: 12px;
+          border: 1px solid #f5c6cb;
+          border-radius: 4px;
+          margin-bottom: 15px;">
+          ❌ {{ exception.exception }}
+        </div>
+      {% endif %}
+      
+
+    <a href="{{ url_for('users.search_users') }}">
+        <button style="margin-top: 20px;">Volver a la lista de clientes</button>
+    </a>
+</div>
+</body>
+</html>
